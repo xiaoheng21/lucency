@@ -2,14 +2,30 @@
   "name": "lucency",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "dev": "vite"
   },
   "dependencies": {
+    "mitt": "^2.1.0",
     "vue": "^3.0.2"
   },
   "devDependencies": {
-    "vite": "^1.0.0-rc.8",
-    "@vue/compiler-sfc": "^3.0.2"
+    "@vue/compiler-sfc": "^3.0.2",
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-vue": "^7.1.0",
+    "postcss-custom-properties": "^9.1.1",
+    "postcss-import": "^13.0.0",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
+    "vite": "^1.0.0-rc.8"
+  },
+  "postcss": {
+    "parser": "sugarss",
+    "map": false,
+    "plugins": {
+      "postcss-plugin": {}
+    }
   }
 }
