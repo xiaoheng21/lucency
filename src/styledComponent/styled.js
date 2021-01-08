@@ -1,30 +1,28 @@
 // 创建并维护唯一 style 标签
 
-const style = document.createElement("style");
-style.dataset.computedCss = "css";
+const style = document.createElement('style')
+style.dataset.computedCss = 'css'
 
-const head = document.getElementsByTagName("head")[0];
-head.appendChild(style);
+const head = document.getElementsByTagName('head')[0]
+head.appendChild(style)
 
 // 添加 style rule
-function addStyle(cssRule, idx) {
-  const index = idx || style.sheet.cssRules.length;
-  style.sheet.insertRule(cssRule, index);
-
-  return index;
+function addStyle(cssRule) {
+  style.sheet.insertRule(cssRule)
 }
 
 // 删除 style rule
-function removeStyle(index) {
-  style.sheet.deleteRule(index);
+function removeStyleByclassName(className) {
+  const index = [...style.sheet.cssRules].findIndex((s) =>
+    s.selectorText.includes(className)
+  )
+  style.sheet.deleteRule(index)
 }
 
 // 更新 style rule
-function updateStyle(cssRule, index) {
-  removeStyle(index);
-  addStyle(cssRule, index);
-
-  return index;
+function updateStyle(cssRule, className) {
+  removeStyleByclassName(className)
+  addStyle(cssRule)
 }
 
-export { style, addStyle, updateStyle };
+export { style, addStyle, updateStyle }

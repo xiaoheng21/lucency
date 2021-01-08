@@ -1,62 +1,62 @@
 export default {
   margin: {
-    prop: "margin",
-    type: String
+    prop: 'margin',
+    type: String,
   },
   m: {
-    prop: "margin",
-    type: String
+    prop: 'margin',
+    type: String,
   },
   mt: {
-    prop: "margin-top",
-    type: String
+    prop: 'margin-top',
+    type: String,
   },
   mr: {
-    prop: "margin-right",
-    type: String
+    prop: 'margin-right',
+    type: String,
   },
   mb: {
-    prop: "margin-bottom",
-    type: String
+    prop: 'margin-bottom',
+    type: String,
   },
   ml: {
-    prop: "margin-left",
-    type: String
+    prop: 'margin-left',
+    type: String,
   },
   padding: {
-    prop: "padding",
-    type: String
+    prop: 'padding',
+    type: String,
   },
   p: {
-    prop: "padding",
-    type: String
+    prop: 'padding',
+    type: String,
   },
   pt: {
-    prop: "padding-top",
-    type: String
+    prop: 'padding-top',
+    type: String,
   },
   pr: {
-    prop: "padding-right",
-    type: String
+    prop: 'padding-right',
+    type: String,
   },
   pb: {
-    prop: "padding-bottom",
-    type: String
+    prop: 'padding-bottom',
+    type: String,
   },
   pl: {
-    prop: "padding-left",
-    type: String
+    prop: 'padding-left',
+    type: String,
   },
   border: {
-    prop: "border",
-    type: String
+    prop: 'border',
+    type: String,
   },
   b: {
-    prop: "border",
-    type: String
+    prop: 'border',
+    type: String,
   },
   borderRadius: {
-    prop: "border-radius",
-    type: String
-  }
-};
+    prop: 'border-radius',
+    type: String,
+  },
+}

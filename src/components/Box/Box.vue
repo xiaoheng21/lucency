@@ -8,7 +8,7 @@
 import styledMixin from "../../styledComponent/styledMixin";
 
 export default {
-  mixins: [styledMixin]
+  mixins: [styledMixin],
 };
 </script>
 

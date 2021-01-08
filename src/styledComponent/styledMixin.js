@@ -1,29 +1,29 @@
-import { useStyled, props } from "./index";
+import { useStyled, props } from './index'
 
 export default {
   props: {
     as: {
       type: String,
-      default: "div"
+      default: 'div',
     },
-    ...props
+    ...props,
   },
   data() {
     return {
-      className: ""
-    };
+      className: '',
+    }
   },
   computed: {
     baseTag() {
-      return this.as;
-    }
+      return this.as
+    },
   },
   created() {
-    const { className, index, update } = useStyled(this.$props);
-    this.className = className;
+    const { className, update } = useStyled(this.$props)
+    this.className = className
 
-    this.$on("hook:updated", () => {
-      update({ props: this.$props, index, className });
-    });
-  }
-};
+    this.$on('hook:updated', () => {
+      update({ props: this.$props, className })
+    })
+  },
+}

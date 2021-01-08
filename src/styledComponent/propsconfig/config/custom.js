@@ -2,12 +2,12 @@ export default {
   flex: {
     type: [Boolean, String],
     custom: (val) => {
-      if (typeof val === "boolean") {
-        return val ? "display: flex;" : "";
+      if (typeof val === 'boolean') {
+        return val ? 'display: flex;' : ''
       } else {
-        return val ? `flex: ${val};` : "";
+        return val ? `flex: ${val};` : ''
       }
-    }
+    },
   },
   truncation: {
     type: Boolean,
@@ -17,9 +17,9 @@ export default {
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
-        `;
+        `
       }
-      return "";
-    }
-  }
-};
+      return ''
+    },
+  },
+}

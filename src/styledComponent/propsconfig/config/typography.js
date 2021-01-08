@@ -1,30 +1,30 @@
 export default {
   fontFamily: {
-    prop: "font-family",
-    type: String
+    prop: 'font-family',
+    type: String,
   },
   fontSize: {
-    prop: "font-size",
-    type: String
+    prop: 'font-size',
+    type: String,
   },
   fontWeight: {
-    prop: "font-weight",
-    type: String
+    prop: 'font-weight',
+    type: String,
   },
   lineHeight: {
-    prop: "line-height",
-    type: String
+    prop: 'line-height',
+    type: String,
   },
   letterSpacing: {
-    prop: "letter-spacing",
-    type: String
+    prop: 'letter-spacing',
+    type: String,
   },
   textAlign: {
-    prop: "text-align",
-    type: String
+    prop: 'text-align',
+    type: String,
   },
   fontStyle: {
-    prop: "font-style",
-    type: String
-  }
-};
+    prop: 'font-style',
+    type: String,
+  },
+}

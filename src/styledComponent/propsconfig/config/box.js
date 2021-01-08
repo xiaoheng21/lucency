@@ -1,10 +1,10 @@
 export default {
   boxSizing: {
-    prop: "box-sizing",
-    type: String
+    prop: 'box-sizing',
+    type: String,
   },
   boxShadow: {
-    prop: "box-shadow",
-    type: String
-  }
-};
+    prop: 'box-shadow',
+    type: String,
+  },
+}

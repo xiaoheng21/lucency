@@ -1,50 +1,50 @@
 export default {
   alignItems: {
-    prop: "align-items",
-    type: String
+    prop: 'align-items',
+    type: String,
   },
   alignContent: {
-    prop: "align-content",
-    type: String
+    prop: 'align-content',
+    type: String,
   },
   justifyItems: {
-    prop: "justify-items",
-    type: String
+    prop: 'justify-items',
+    type: String,
   },
   justifyContent: {
-    prop: "justify-content",
-    type: String
+    prop: 'justify-content',
+    type: String,
   },
   flexWrap: {
-    prop: "flex-wrap",
-    type: String
+    prop: 'flex-wrap',
+    type: String,
   },
   flexDirection: {
-    prop: "flex-direction",
-    type: String
+    prop: 'flex-direction',
+    type: String,
   },
   flexGrow: {
-    prop: "flex-grow",
-    type: String
+    prop: 'flex-grow',
+    type: String,
   },
   flexShrink: {
-    prop: "flex-shrink",
-    type: String
+    prop: 'flex-shrink',
+    type: String,
   },
   flexBasis: {
-    prop: "flex-basis",
-    type: String
+    prop: 'flex-basis',
+    type: String,
   },
   justifySelf: {
-    prop: "justify-self",
-    type: String
+    prop: 'justify-self',
+    type: String,
   },
   alignSelf: {
-    prop: "align-self",
-    type: String
+    prop: 'align-self',
+    type: String,
   },
   order: {
-    prop: "order",
-    type: String
-  }
-};
+    prop: 'order',
+    type: String,
+  },
+}

@@ -1,14 +1,20 @@
 <template>
-  <Box flex>
+  <component :is="baseTag" :class="className">
     <slot />
-  </Box>
+  </component>
 </template>
 
 <script>
-import Box from "../Box/Box";
+import styledMixin from "../../styledComponent/styledMixin";
 
 export default {
-  components: { Box },
+  props: {
+    flex: {
+      type: [String, Boolean],
+      default: true,
+    },
+  },
+  mixins: [styledMixin],
 };
 </script>
 
