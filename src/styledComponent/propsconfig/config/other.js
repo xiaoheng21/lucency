@@ -11,4 +11,8 @@ export default {
     prop: 'transition',
     type: String,
   },
+  sx: {
+    prop: null,
+    type: Object
+  }
 }

@@ -1,4 +1,5 @@
-import { useStyled, props } from './index'
+import { useStyled } from './styled'
+import { styledProps as props } from './propsConfig'
 
 export default {
   props: {
@@ -21,9 +22,9 @@ export default {
   created() {
     const { className, update } = useStyled(this.$props)
     this.className = className
-
+    
     this.$on('hook:updated', () => {
-      update({ props: this.$props, className })
+      update(this.$props, className)
     })
   },
 }

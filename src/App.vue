@@ -12,7 +12,18 @@
       {{ " " }}
     </Box>
     <Flex width="50%" margin="10px auto">
-      <Box width="50%" height="100px" bgc="#0abde3" />
+      <Box
+        :sx="{
+          ':hover': {
+            bgc: '#ee5253',
+            transition: '.5s linear'
+          }
+        }"
+        width="50%"
+        height="100px"
+        bgc="#0abde3"
+      >
+      </Box>
       <Box width="50%" height="100px" bgc="#ee5253" />
     </Flex>
   </div>
