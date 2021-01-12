@@ -28,7 +28,8 @@ class Styled {
     let indexs = []
 
     for (const idx in rules) {
-      if (rules[idx].selectorText.includes(className)) indexs.push(idx)
+      const classNameText = rules[idx].selectorText || rules[idx].cssText
+      if (classNameText.includes(className)) indexs.push(idx)
     }
 
     indexs.sort((a, b) => b - a).forEach(index => {

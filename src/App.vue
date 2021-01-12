@@ -14,14 +14,13 @@
     <Flex width="50%" margin="10px auto">
       <Box
         :sx="{
-          ':hover': {
-            bgc: '#ee5253',
-            transition: '.5s linear'
+          '@media screen and (min-width: 900px)': {
+            bgc: 'blue'
           }
         }"
+        bgc='red'
         width="50%"
         height="100px"
-        bgc="#0abde3"
       >
       </Box>
       <Box width="50%" height="100px" bgc="#ee5253" />

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import styledMixin from "../../styledComponent/styledMixin";
+import styledMixin from "../../styledSystem/styledMixin";
 
 export default {
   mixins: [styledMixin],

@@ -1,5 +1,5 @@
 import { propsMap, propsCustom } from './propsConfig'
-import { merge, pickBy } from 'lodash'
+import { merge, pickBy, cloneDeep } from 'lodash'
 
 function initClassNames() {
   const classNames = {} // 类名池子,保证不会重复
@@ -57,16 +57,21 @@ function generateStyle(props) {
 
 export function generateRuleByProps(props, name) {
   const className = name || generateClassName()
-  const _props = merge(props, pickBy(props.sx, (val, key) => key[0] !== ":"))
-  const specialProps = pickBy(props.sx, (val, key) => key[0] === ":") // 伪类和伪元素支持
+  const _props = merge(cloneDeep(props), pickBy(props.sx, (val, key) => ![":", "@"].includes(key[0])) || {})
+  const specialProps = pickBy(props.sx, (val, key) => [":", "@"].includes(key[0])) || {} // 伪类和伪元素支持
 
   const defaultStyleStr = generateStyle(_props)
   const defaultRuleStr = `.${className} ${defaultStyleStr}`
   
-  const rules = Object.entries(specialProps).map(([key, val]) => {
+  const specialRules = Object.entries(specialProps).map(([key, val]) => {
     const _styleStr = generateStyle(val)
-    return `.${className}${key} ${_styleStr}`
+    const startMap = {
+      ':': `.${className} ${_styleStr}`,
+      '@': `${key} { .${className} ${_styleStr} }`
+    }
+
+    return startMap[key[0]]
   })
 
-  return  { className, rules: [ ...rules, defaultRuleStr ] }
+  return  { className, rules: [ ...specialRules, defaultRuleStr ] }
 }
