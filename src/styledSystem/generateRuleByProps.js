@@ -66,7 +66,7 @@ export function generateRuleByProps(props, name) {
   const specialRules = Object.entries(specialProps).map(([key, val]) => {
     const _styleStr = generateStyle(val)
     const startMap = {
-      ':': `.${className} ${_styleStr}`,
+      ':': `.${className}${key} ${_styleStr}`,
       '@': `${key} { .${className} ${_styleStr} }`
     }
 

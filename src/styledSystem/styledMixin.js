@@ -7,6 +7,10 @@ export default {
       type: String,
       default: 'div',
     },
+    static: {
+      type: Boolean,
+      default: false
+    },
     ...props,
   },
   data() {
@@ -20,11 +24,17 @@ export default {
     },
   },
   created() {
-    const { className, update } = useStyled(this.$props)
+    const { className, update, remove } = useStyled(this.$props)
     this.className = className
     
-    this.$on('hook:updated', () => {
-      update(this.$props, className)
+    if (!this.static) {
+      this.$on('hook:updated', () => {
+        update(this.$props, className)
+      })
+    }
+    
+    this.$on('hook:beforeDestroy', () => {
+      remove(className)
     })
   },
 }

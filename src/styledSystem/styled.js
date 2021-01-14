@@ -1,3 +1,5 @@
+import hash from 'object-hash'
+import { findKey } from 'lodash'
 import { generateRuleByProps } from './generateRuleByProps'
 
 // 创建并维护唯一 style 标签
@@ -28,7 +30,7 @@ class Styled {
     let indexs = []
 
     for (const idx in rules) {
-      const classNameText = rules[idx].selectorText || rules[idx].cssText
+      const classNameText = rules[idx].selectorText || rules[idx].cssText // @ 媒体查询类的类名在 cssText 里
       if (classNameText.includes(className)) indexs.push(idx)
     }
 
@@ -46,16 +48,56 @@ class Styled {
 
 const style = new Styled()
 
-function add(props) {
-  const { className, rules } = generateRuleByProps(props)
-  style.insertRule(rules)
+// 维护静态 cssRule
+function initStaticRules() {
+  const _rules = {}
 
-  return className
+  const getStaticRule = hash => _rules[hash]
+  const insertStaticRule = (hash, info) => _rules[hash] = info
+  const removeStaticRule = className => delete _rules[findKey(_rules, rule => rule.className === className)]
+
+  return {
+    getStaticRule,
+    insertStaticRule,
+    removeStaticRule
+  }
+}
+
+const { getStaticRule, insertStaticRule, removeStaticRule } = initStaticRules()
+
+function add(props) {
+  const propHash = hash(props)
+  const staticRule = getStaticRule(propHash)
+
+  if (!props.static) {
+    const { className, rules } = generateRuleByProps(props)
+    style.insertRule(rules)
+
+    return className
+  } else {
+    if (!staticRule) {
+      const { className, rules } = generateRuleByProps(props)
+      style.insertRule(rules)
+      insertStaticRule(propHash, { className, rules })
+      return className
+    } else {
+      const { className } = staticRule
+      return className
+    }
+  }
+
 }
 
 function update(props, className) {
-  const { rules } = generateRuleByProps(props, className)
-  style.updateRule(rules, className)
+  if (!props.static) {
+    const { rules } = generateRuleByProps(props, className)
+    style.updateRule(rules, className)
+  }
+}
+
+function remove(className) {
+  style.deleteRule(className)
+  removeStaticRule(className)
 }
 
 export function useStyled(props) {
@@ -64,6 +106,7 @@ export function useStyled(props) {
   return {
     className,
     update,
+    remove
   }
 }
 
