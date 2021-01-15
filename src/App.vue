@@ -17,8 +17,7 @@
 </template>
 
 <script>
-import Box from "./components/Box/Box";
-import Flex from "./components/Flex/Flex";
+import { Box, Flex } from "./components";
 
 export default {
   name: "App",
